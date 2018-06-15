@@ -1,17 +1,10 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import fetchTodos from './queries/fetchTodos'
 
 const TodoList = () => (
   <Query
-    query={gql`
-      {
-        rates(currency: "USD") {
-          currency
-          rate
-        }
-      }
-    `}
+    query={fetchTodos}
   >
       {({ loading, error, data }) => {
         if(loading) return <p>Loading...</p>
