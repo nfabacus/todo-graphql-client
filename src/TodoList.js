@@ -9,10 +9,11 @@ const TodoList = () => (
       {({ loading, error, data }) => {
         if(loading) return <p>Loading...</p>
         if(error) return <p>Error: Something went wrong.</p>
-
-        return data.rates.map(({ currency, rate }) => (
-          <div key={currency}>
-            <p>{`${currency}: ${rate}`}</p>
+        console.log("data>>", JSON.stringify(data))
+        return data.todos.map(({ id, title, description })=>(
+          <div key={id}>
+            <h3>{title}</h3>
+            <p>{description}</p>
           </div>
         ))
       }}
